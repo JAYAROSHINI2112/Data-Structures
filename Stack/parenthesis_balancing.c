@@ -22,7 +22,7 @@ int main()
     else{
         for(i=0;i<=n;i++){
         top++;
-        stack[i]=a[i];
+        stack[top]=a[i];
         }
     }
     for(i=n;i>0;i--){
