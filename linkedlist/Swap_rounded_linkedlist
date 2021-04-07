@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node*next;
+};
+struct node*temp;
+struct node*head=NULL;
+void insert(int v);
+void display(int v);
+void swap(int v);
+void insert(int v){
+    int i,item,a[20];
+      for(i=0;i<v;i++){
+        scanf("%d",&a[i]);
+        }
+    for(i=0;i<v;i++){
+        struct node*newnode=(struct node*)malloc(sizeof(struct node));
+        newnode->data=a[i];
+        if(head==NULL){
+            head=newnode;
+            temp=newnode;
+        }
+        else{
+             temp->next=newnode;
+             temp=newnode;
+        }
+         temp->next=head;
+    }
+}
+void display(int v){
+    struct node*t=head;
+    for(int i=0;i<v;i++){
+        printf("%d ",t->data);
+        t=t->next;
+    }
+}
+void swap(int v){
+    int swap,i;
+    struct node*var=head;
+  for(i=0;i<v-1;i++){
+       var=var->next;
+    }
+      swap=head->data;
+      head->data=var->data;
+      var->data=swap;
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    insert(n);
+    printf("Before Swap : ");
+    display(n);
+    printf("\n");
+    printf("After Swap : ");
+    swap(n);
+    display(n);
+  }
