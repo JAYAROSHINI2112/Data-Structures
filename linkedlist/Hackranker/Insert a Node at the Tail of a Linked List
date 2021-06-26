@@ -3,6 +3,7 @@ SinglyLinkedListNode *temp;
 SinglyLinkedListNode *newnode = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
 temp = head;
 newnode -> data = data;
+newnode -> next = NULL;
 if(head == NULL)
    head = newnode; 
 
