@@ -1,0 +1,11 @@
+bool compare_lists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+SinglyLinkedListNode* l1 = head1;
+    SinglyLinkedListNode* l2 = head2;
+    while (l1 || l2) {
+        if (!l1 || !l2) return false; // Any null pointer?
+        if (l1->data != l2->data) return false; // Different data?
+        l1 = l1->next;
+        l2 = l2->next;
+    }
+    return true;
+}   
