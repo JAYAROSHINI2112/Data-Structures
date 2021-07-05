@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+struct node{
+    int data;
+    struct node*next;
+};
+struct node*temp = 0;
+void insert(int pos,int key)
+{
+    int i;
+    struct node*newnode=(struct node*)malloc(sizeof(struct node));
+    struct node*cur;
+    newnode -> data = key;
+    if(pos == 0 && temp == 0)
+    {
+        temp = newnode;
+    }
+    else if(pos == 0 && temp != 0)
+    {
+        newnode -> next = temp;
+        temp = newnode;
+    }
+    else
+    {
+        for(i=0;i<pos-1;i++)
+        {
+            temp = temp -> next;
+        }
+        cur = temp -> next;
+        newnode -> next = cur;
+        temp -> next = newnode;
+     }
+}
+
+void display(int n)
+{
+    int i = 0;
+    while(temp != 0)
+    {
+        printf("%d",temp -> data);
+        if(i < n-1)
+        {
+            printf("->");
+            i++;
+        }
+        temp = temp -> next;
+    }
+}
+int main() {
+ int i,n,pos,key;
+  scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d %d",&pos,&key);
+        insert(pos,key);
+    }  
+    display(n);
+    
+}
